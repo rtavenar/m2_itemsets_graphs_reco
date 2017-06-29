@@ -4,6 +4,10 @@ import matplotlib.pyplot as plt
 __author__ = 'Romain Tavenard romain.tavenard[at]univ-rennes2.fr'
 
 
+def sorted_dict(d):
+    return sorted(d.items(), key=lambda t: t[1], reverse=True)
+
+
 # Manip 1
 g = nx.read_edgelist("data/graph1.txt")
 
@@ -40,16 +44,16 @@ for i in range(len(list_nodes)):
 
 h, a = nx.hits(g)
 print("Hubs")
-for k, v in sorted(h.items(), key=lambda t: t[1], reverse=True):
+for k, v in sorted_dict(h):
     print(k, v)
 
 print("Authorities")
-for k, v in sorted(a.items(), key=lambda t: t[1], reverse=True):
+for k, v in sorted_dict(a):
     print(k, v)
 
 pr = nx.pagerank(g, alpha=0.9)  # leur faire recoder PageRank ne serait pas une mauvaise idée
 print("PageRank")
-for k, v in sorted(pr.items(), key=lambda t: t[1], reverse=True):
+for k, v in sorted_dict(pr):
     print(k, v)
 
 
