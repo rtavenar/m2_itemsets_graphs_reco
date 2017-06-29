@@ -33,7 +33,8 @@ plt.title("graph1.txt")
 # Manip 4
 g = nx.read_edgelist("data/graphM1.txt", create_using=nx.DiGraph())
 for n in g.nodes_iter():
-    print("Node %r, degree: %d, neighbors: %r" % (n, g.degree(n), g.neighbors(n)))  # leur demander le sens de `degree` et `neighbors` pour un graphe orienté
+    # leur demander le sens de `degree` et `neighbors` pour un graphe orienté
+    print("Node %r, degree: %d, neighbors: %r" % (n, g.degree(n), g.neighbors(n)))
 list_nodes = g.nodes()
 for i in range(len(list_nodes)):
     for j in range(i + 1, len(list_nodes)):
