@@ -36,10 +36,10 @@ méthode dite _User-based Collaborative Filtering_ (que vous devrez implémenter
 | C           | S7         | 0     |
 | C           | Galaxy Tab | 0     |
 |             |            |       |
-| B           | iPad       | 0     |
-| B           | iPhone     | 0     |
-| B           | S7         | 10    |
-| B           | Galaxy Tab | 10    |
+| D           | iPad       | 0     |
+| D           | iPhone     | 0     |
+| D           | S7         | 10    |
+| D           | Galaxy Tab | 10    |
 
 4. Répétez l'opération après avoir ajouté une arête entre les sommets `A` et `C` dans le graphe.
 

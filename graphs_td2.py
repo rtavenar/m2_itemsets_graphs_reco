@@ -72,7 +72,6 @@ for source, dest, sim in top_k_adamic_adar(triplets=triplets, k=3):
 grades = {("A", "iPad"): 10,
           ("A", "iPhone"): 10,
           ("A", "S4"): 0,
-          ("A", "Bidule"): 0,
 
           ("B", "iPad"): 5,
           ("B", "iPhone"): 5,
