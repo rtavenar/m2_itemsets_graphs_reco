@@ -55,11 +55,40 @@ tracés en Python.
 
 ### `matplotlib` en 5 minutes
 
-**TODO**
+Pour utiliser le _package_ `matplotlib`, commencer par ajouter la ligne suivante à la liste de vos imports en début de 
+fichier :
+
+```python
+import matplotlib.pyplot as plt
+```
+
+Ensuite, la création d'un graphique se fait toujours en trois étapes :
+
+1. création d'une nouvelle figure / d'un emplacement où dessiner le graphique ;
+2. ajout des éléments nécessaires au graphique ;
+3. affichage du graphique à l'écran ou enregistrement du graphique sous forme de fichier.
+
+Voici un exemple de ces trois étapes (dans cet exemple, chaque étape prend une ligne) :
+
+```python
+import matplotlib.pyplot as plt
+import numpy
+
+x = [0., 0.1, 0.2, 0.3, 0.4, 0.5]  # abscisse des points à tracer
+
+plt.figure()  # création d'une nouvelle figure
+plt.plot(x, numpy.sin(x))  # ajout d'une courbe sinus
+plt.show()  # affichage à l'écran du graphique obtenu
+```
+
 
 ### Retour à `NetworkX`
 
-7. Tracez, côte à côte dans une même fenêtre, les deux graphes manipulés dans ce TD. 
+Dans le schéma précédent, si l'on souhaite représenter un graphe, on peut remplacer commande `plt.plot(...)` par
+[une commande de tracé de graphe](http://networkx.readthedocs.io/en/stable/reference/drawing.html)  spécifique à 
+`NetworkX`.
+
+7. Tracez, tour à tour, les deux graphes manipulés dans ce TD. 
 Pour le graphe orienté vu dans la deuxième partie du TD, vous ferez en sorte que la taille des sommets du graphe soit
 proportionnelle à leur importance dans le graphe telle qu'évaluée par la fonction `pagerank`.
 

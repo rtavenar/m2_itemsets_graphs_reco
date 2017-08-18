@@ -28,9 +28,9 @@ for i in range(len(list_nodes)):
 
 
 plt.figure()
-plt.subplot(2, 1, 1)
 nx.draw(g, with_labels=True)
 plt.title("graph1.txt")
+plt.show()
 
 # Manip 4
 g = nx.read_edgelist("data/graphM1.txt", create_using=nx.DiGraph())
@@ -62,7 +62,7 @@ for k, v in sorted_dict(pr):
     print(k, v)
 
 
-plt.subplot(2, 1, 2)
+plt.figure()
 nx.draw(g, with_labels=True, nodelist=pr.keys(), node_size=[v * 10 * 1000 for v in pr.values()])
 plt.title("graphM1.txt")
 plt.show()
