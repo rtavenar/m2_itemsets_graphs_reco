@@ -31,7 +31,7 @@ def user_based_collaborative_filtering(g, scores, target, n_neighbors=5, similar
     return target_score
 
 
-def directed_graph_common_neighbors(g, u, v):
+def generic_common_neighbors(g, u, v):
     list_common_neighbors = []
     for w in g.nodes_iter():
         if (g.has_edge(u, w) and g.has_edge(w, v)) or (g.has_edge(v, w) and g.has_edge(w, u)):
@@ -39,30 +39,36 @@ def directed_graph_common_neighbors(g, u, v):
     return list_common_neighbors
 
 
-def directed_graph_adamic_adar(g, ebunch=None):
+def generic_adamic_adar(g, ebunch=None):
     if ebunch is None:
         ebunch = nx.non_edges(g)
 
     def predict(u, v):
-        return sum([1. / math.log(g.degree(w)) for w in directed_graph_common_neighbors(g, u, v)])
+        return sum([1. / math.log(g.degree(w)) for w in generic_common_neighbors(g, u, v)])
 
     return [(u, v, predict(u, v)) for u, v in ebunch]
 
 
-# Manipulations 6-7
+# Manipulations 1-2
 g = nx.read_edgelist("data/graph1.txt")
 g_directed = nx.read_edgelist("data/graphM1.txt", create_using=nx.DiGraph())
 
 print("graph1.txt")
 triplets = list(nx.adamic_adar_index(g))
-for source, dest, sim in top_k_adamic_adar(triplets=triplets, k=2):
+for source, dest, sim in top_k_adamic_adar(triplets=triplets, k=3):
+    print("(%r, %r) -> %.8f" % (source, dest, sim))
+
+print("graph1.txt avec la fonction generique")
+triplets = generic_adamic_adar(g)
+for source, dest, sim in top_k_adamic_adar(triplets=triplets, k=3):
     print("(%r, %r) -> %.8f" % (source, dest, sim))
 
 print("graphM1.txt")
-for source, dest, sim in directed_graph_adamic_adar(g_directed):
+triplets = generic_adamic_adar(g_directed)
+for source, dest, sim in top_k_adamic_adar(triplets=triplets, k=3):
     print("(%r, %r) -> %.8f" % (source, dest, sim))
 
-# Manipulation 8
+# Manipulation 3
 grades = {("A", "iPad"): 10,
           ("A", "iPhone"): 10,
           ("A", "S4"): 0,
@@ -84,10 +90,11 @@ grades = {("A", "iPad"): 10,
           ("D", "S4"): 10}
 print("Note pour (A, GalaxyTab):", user_based_collaborative_filtering(g, grades, target=("A", "GalaxyTab")))
 
+# Manipulation 4
 g.add_edge("A", "C")
 print("Note pour (A, GalaxyTab):", user_based_collaborative_filtering(g, grades, target=("A", "GalaxyTab")))
 
-# Manipulation 9
+# Manipulation 5
 grades = {("GAUTIER_RONAN", "R"): 12,
           ("GAUTIER_RONAN", "NN"): 16,
           ("HEBERT_FLORIAN", "SQL"): 15,
@@ -96,4 +103,4 @@ grades = {("GAUTIER_RONAN", "R"): 12,
 print("Note pour (GAUTIER_RONAN, SQL):", user_based_collaborative_filtering(g_directed,
                                                                             grades,
                                                                             target=("GAUTIER_RONAN", "SQL"),
-                                                                            similarity_fun=directed_graph_adamic_adar))
+                                                                            similarity_fun=generic_adamic_adar))
