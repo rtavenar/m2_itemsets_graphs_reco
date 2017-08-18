@@ -10,9 +10,11 @@ def sorted_dict(d):
 
 # Manip 1
 g = nx.read_edgelist("data/graph1.txt")
+print("Sommets du graphe g:", g.nodes())
+print("Arêtes du graphe g:", g.edges())
 
 # Manip 2
-for n in g.nodes_iter():
+for n in g.nodes():
     print("Node %r, degree: %d, neighbors: %r" % (n, g.degree(n), g.neighbors(n)))
 
 # Manip 3
@@ -32,6 +34,8 @@ plt.title("graph1.txt")
 
 # Manip 4
 g = nx.read_edgelist("data/graphM1.txt", create_using=nx.DiGraph())
+print("Sommets du graphe orienté g:", g.nodes())
+print("Arêtes du graphe orienté g:", g.edges())
 for n in g.nodes_iter():
     # leur demander le sens de `degree` et `neighbors` pour un graphe orienté
     print("Node %r, degree: %d, neighbors: %r" % (n, g.degree(n), g.neighbors(n)))
