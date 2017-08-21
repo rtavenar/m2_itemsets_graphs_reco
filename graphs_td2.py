@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import networkx as nx
 import math
 
@@ -58,7 +60,7 @@ triplets = list(nx.adamic_adar_index(g))
 for source, dest, sim in top_k_adamic_adar(triplets=triplets, k=3):
     print("(%r, %r) -> %.8f" % (source, dest, sim))
 
-print("graph1.txt avec la fonction generique")
+print("graph1.txt avec la fonction générique")
 triplets = generic_adamic_adar(g)
 for source, dest, sim in top_k_adamic_adar(triplets=triplets, k=3):
     print("(%r, %r) -> %.8f" % (source, dest, sim))

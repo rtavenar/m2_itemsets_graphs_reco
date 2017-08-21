@@ -24,13 +24,13 @@ Nous nous intéresserons principalement dans cette série de TD aux types `Graph
 ## Graphes non orientés
 
 1. Stockez dans une variable le graphe non orienté contenu dans le fichier `data/graph1.txt` (le format de ce fichier 
-est appelé [_Edge List_](http://networkx.readthedocs.io/en/latest/reference/readwrite/edgelist.html) dans la nomenclature 
-`NetworkX`). 
-Affichez la liste de ses sommets et la liste de ses arêtes.
+est appelé [_Edge List_](http://networkx.readthedocs.io/en/latest/reference/readwrite/edgelist.html) dans la 
+nomenclature `NetworkX`). 
+Affichez la liste de ses noeuds et la liste de ses liens.
 
-2. Affichez, pour chacun des sommets de ce graphe, son degré et la liste de ses voisins dans le graphe.
+2. Affichez, pour chacun des noeuds de ce graphe, son degré et la liste de ses voisins dans le graphe.
 
-3. Affichez, pour chaque paire de sommets du graphe, un chemin menant d'un sommet à l'autre dans le graphe, s'il en 
+3. Affichez, pour chaque paire de noeuds du graphe, un chemin menant d'un noeud à l'autre dans le graphe, s'il en 
 existe.
 
 ## Graphes orientés
@@ -40,8 +40,8 @@ existe.
 Que signifient les termes "degré" et "voisin" dans le cas d'un graphe orienté ? Comment obtenir les degrés entrant 
 et sortant d'un noeud ?
 
-5. Implémentez une fonction `pagerank` qui calcule, pour un graphe donné et une valeur de $\alpha$, l'indice en 
-question. Quels sont les sommets les plus influents du graphe créé à la manipulation précédente ?
+5. Implémentez une fonction `pagerank` qui calcule, pour un graphe et une valeur de $\alpha$ donnés, l'indice en 
+question. Quels sont les noeuds les plus influents du graphe créé à la manipulation précédente ?
 
 _NB :_ en pratique, `NetworkX` offre 
 [une implémentation de cet algorithme](http://networkx.readthedocs.io/en/latest/reference/algorithms/link_analysis.html) 
@@ -92,7 +92,7 @@ Dans le schéma précédent, si l'on souhaite représenter un graphe, on peut re
 `NetworkX`.
 
 7. Tracez, tour à tour, les deux graphes manipulés dans ce TD. 
-Pour le graphe orienté vu dans la deuxième partie du TD, vous ferez en sorte que la taille des sommets du graphe soit
+Pour le graphe orienté vu dans la deuxième partie du TD, vous ferez en sorte que la taille des noeuds du graphe soit
 proportionnelle à leur importance dans le graphe telle qu'évaluée par la fonction `pagerank`.
 
 

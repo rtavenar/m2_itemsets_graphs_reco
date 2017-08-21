@@ -10,7 +10,9 @@ la documentation de `NetworkX` pourrait vous être utile ici.
 
 1. Évaluez la similarité, au sens de l'indice Adamic/Adar, entre toutes les paires de noeuds du graphe non orienté
 manipulé au TD précédent. Comme indiqué dans la documentation, la fonction que vous avez utilisée n'est disponible que 
-pour les graphes non orientés. Proposez une implémentation du calcul de cet indice qui soit 
+pour les graphes non orientés. Proposez une implémentation du calcul de cet indice qui soit généralisable aux graphes 
+orientés et vérifiez qu'elle donne les mêmes résultats que la fonction fournie par `NetworkX` dans le cas des graphes 
+non orientés.
 
 2. Pour chacun des deux graphes, quels sont les trois liens manquants les plus "prévisibles" ?
 
@@ -41,6 +43,6 @@ méthode dite _User-based Collaborative Filtering_ (que vous devrez implémenter
 | D           | S7         | 10    |
 | D           | Galaxy Tab | 10    |
 
-4. Répétez l'opération après avoir ajouté une arête entre les sommets `A` et `C` dans le graphe.
+4. Répétez l'opération après avoir ajouté un lien entre les noeuds `A` et `C` dans le graphe.
 
-5. Proposez un ensemble de paires sommet/note pour le graphe orienté et inférez une note non fournie.
+5. Proposez un ensemble de paires noeud/note pour le graphe orienté des étudiants et inférez une note non fournie.

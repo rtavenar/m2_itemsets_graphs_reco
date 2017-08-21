@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import networkx as nx
 import matplotlib.pyplot as plt
 
@@ -22,12 +24,12 @@ def pagerank(g, alpha=0.9, max_iter=100):
 
 # Manip 1
 g = nx.read_edgelist("data/graph1.txt")
-print("Sommets du graphe g:", g.nodes())
-print("Arêtes du graphe g:", g.edges())
+print("Noeuds du graphe g:", g.nodes())
+print("Liens du graphe g:", g.edges())
 
 # Manip 2
 for n in g.nodes():
-    print("Node %r, degree: %d, neighbors: %r" % (n, g.degree(n), g.neighbors(n)))
+    print("Noeud %r, degré: %d, voisins: %r" % (n, g.degree(n), g.neighbors(n)))
 
 # Manip 3
 list_nodes = g.nodes()
@@ -46,14 +48,14 @@ plt.show()
 
 # Manip 4
 g = nx.read_edgelist("data/graphM1.txt", create_using=nx.DiGraph())
-print("Sommets du graphe orienté g:", g.nodes())
-print("Arêtes du graphe orienté g:", g.edges())
+print("Noeuds du graphe orienté g:", g.nodes())
+print("Liens du graphe orienté g:", g.edges())
 for n in g.nodes_iter():
-    print("Node %r, degree: %d, neighbors: %r, degre entrant: %d, degre sortant: %d" % (n,
-                                                                                        g.degree(n),
-                                                                                        g.neighbors(n),
-                                                                                        g.in_degree(n),
-                                                                                        g.out_degree(n)))
+    print("Noeud %r, degré: %d, voisins: %r, degré entrant: %d, degré sortant: %d" % (n,
+                                                                                      g.degree(n),
+                                                                                      g.neighbors(n),
+                                                                                      g.in_degree(n),
+                                                                                      g.out_degree(n)))
 list_nodes = g.nodes()
 for i in range(len(list_nodes)):
     for j in range(i + 1, len(list_nodes)):
@@ -67,7 +69,7 @@ print("Hubs")
 for k, v in sorted_dict(h):
     print(k, v)
 
-print("Authorities")
+print("Autorités")
 for k, v in sorted_dict(a):
     print(k, v)
 
@@ -77,7 +79,7 @@ for k, v in sorted_dict(pr):
     print(k, v)
 
 my_pr = pagerank(g, alpha=0.9, max_iter=500)
-print("My PageRank")
+print("Mon PageRank")
 for k, v in sorted_dict(pr):
     print(k, v, my_pr[k])
 
