@@ -12,6 +12,8 @@ import networkx as nx
 Ainsi, les fonctions et objets de ce package seront ensuite accessibles avec la syntaxe :
 
 ```python
+import networkx as nx
+
 nx.nom_de_la_fonction(...)
 ```
 
@@ -35,7 +37,8 @@ existe.
 
 4. Répétez les actions de la section précédente (manipulations 1 à 3) pour le graphe orienté stocké dans le fichier 
 `data/graphM1.txt`, représentant un réseau social imaginaire vous impliquant, vous et vos camarades.
-Que signifient les termes "degré" et "voisin" dans le cas d'un graphe orienté ?
+Que signifient les termes "degré" et "voisin" dans le cas d'un graphe orienté ? Comment obtenir les degrés entrant 
+et sortant d'un noeud ?
 
 5. Implémentez une fonction `pagerank` qui calcule, pour un graphe donné et une valeur de $\alpha$, l'indice en 
 question. Quels sont les sommets les plus influents du graphe créé à la manipulation précédente ?
@@ -55,7 +58,7 @@ tracés en Python.
 
 ### `matplotlib` en 5 minutes
 
-Pour utiliser le _package_ `matplotlib`, commencer par ajouter la ligne suivante à la liste de vos imports en début de 
+Pour utiliser le _package_ `matplotlib`, commencez par ajouter la ligne suivante à la liste de vos imports en début de 
 fichier :
 
 ```python

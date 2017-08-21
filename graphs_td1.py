@@ -8,6 +8,18 @@ def sorted_dict(d):
     return sorted(d.items(), key=lambda t: t[1], reverse=True)
 
 
+def pagerank(g, alpha=0.9, max_iter=100):
+    n_nodes = g.number_of_nodes()
+    pagerank_dict = {node: 1. / n_nodes for node in g.nodes()}
+    for iter in range(max_iter):
+        pagerank_dict_new = {node: (1. - alpha) / n_nodes for node in g.nodes()}
+        for node_j in g.nodes():
+            for node_i in g.predecessors(node_j):
+                pagerank_dict_new[node_j] += alpha * (pagerank_dict[node_i] / g.out_degree(node_i))
+        pagerank_dict = pagerank_dict_new.copy()
+    return pagerank_dict
+
+
 # Manip 1
 g = nx.read_edgelist("data/graph1.txt")
 print("Sommets du graphe g:", g.nodes())
@@ -37,8 +49,11 @@ g = nx.read_edgelist("data/graphM1.txt", create_using=nx.DiGraph())
 print("Sommets du graphe orienté g:", g.nodes())
 print("Arêtes du graphe orienté g:", g.edges())
 for n in g.nodes_iter():
-    # leur demander le sens de `degree` et `neighbors` pour un graphe orienté
-    print("Node %r, degree: %d, neighbors: %r" % (n, g.degree(n), g.neighbors(n)))
+    print("Node %r, degree: %d, neighbors: %r, degre entrant: %d, degre sortant: %d" % (n,
+                                                                                        g.degree(n),
+                                                                                        g.neighbors(n),
+                                                                                        g.in_degree(n),
+                                                                                        g.out_degree(n)))
 list_nodes = g.nodes()
 for i in range(len(list_nodes)):
     for j in range(i + 1, len(list_nodes)):
@@ -56,10 +71,15 @@ print("Authorities")
 for k, v in sorted_dict(a):
     print(k, v)
 
-pr = nx.pagerank(g, alpha=0.9)  # leur faire recoder PageRank ne serait pas une mauvaise idée
+pr = nx.pagerank(g, alpha=0.9)
 print("PageRank")
 for k, v in sorted_dict(pr):
     print(k, v)
+
+my_pr = pagerank(g, alpha=0.9, max_iter=500)
+print("My PageRank")
+for k, v in sorted_dict(pr):
+    print(k, v, my_pr[k])
 
 
 plt.figure()
