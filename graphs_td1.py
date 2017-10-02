@@ -47,7 +47,7 @@ plt.title("graph1.txt")
 plt.show()
 
 # Manip 4
-g = nx.read_edgelist("data/graphM1.txt", create_using=nx.DiGraph())
+g = nx.read_edgelist("data/graphM2.txt", create_using=nx.DiGraph())
 print("Noeuds du graphe orienté g:", g.nodes())
 print("Liens du graphe orienté g:", g.edges())
 for n in g.nodes_iter():

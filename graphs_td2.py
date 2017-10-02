@@ -53,7 +53,7 @@ def generic_adamic_adar(g, ebunch=None):
 
 # Manipulations 1-2
 g = nx.read_edgelist("data/graph1.txt")
-g_directed = nx.read_edgelist("data/graphM1.txt", create_using=nx.DiGraph())
+g_directed = nx.read_edgelist("data/graphM2.txt", create_using=nx.DiGraph())
 
 print("graph1.txt")
 triplets = list(nx.adamic_adar_index(g))
@@ -65,7 +65,7 @@ triplets = generic_adamic_adar(g)
 for source, dest, sim in top_k_adamic_adar(triplets=triplets, k=3):
     print("(%r, %r) -> %.8f" % (source, dest, sim))
 
-print("graphM1.txt")
+print("graphM2.txt")
 triplets = generic_adamic_adar(g_directed)
 for source, dest, sim in top_k_adamic_adar(triplets=triplets, k=3):
     print("(%r, %r) -> %.8f" % (source, dest, sim))
@@ -96,12 +96,12 @@ g.add_edge("A", "C")
 print("Note pour (A, GalaxyTab):", user_based_collaborative_filtering(g, grades, target=("A", "GalaxyTab")))
 
 # Manipulation 5
-grades = {("GAUTIER_RONAN", "R"): 12,
-          ("GAUTIER_RONAN", "NN"): 16,
-          ("HEBERT_FLORIAN", "SQL"): 15,
-          ("HEBERT_FLORIAN", "R"): 9,
+grades = {("AZNAGUE_ABDESSAMAD", "R"): 12,
+          ("AZNAGUE_ABDESSAMAD", "NN"): 16,
+          ("BAI_HUIQIAN", "SQL"): 15,
+          ("BAI_HUIQIAN", "R"): 9,
           }
-print("Note pour (GAUTIER_RONAN, SQL):", user_based_collaborative_filtering(g_directed,
-                                                                            grades,
-                                                                            target=("GAUTIER_RONAN", "SQL"),
-                                                                            similarity_fun=generic_adamic_adar))
+print("Note pour (AZNAGUE_ABDESSAMAD, SQL):", user_based_collaborative_filtering(g_directed,
+                                                                                 grades,
+                                                                                 target=("AZNAGUE_ABDESSAMAD", "SQL"),
+                                                                                 similarity_fun=generic_adamic_adar))

@@ -36,7 +36,7 @@ existe.
 ## Graphes orientés
 
 4. Répétez les actions de la section précédente (manipulations 1 à 3) pour le graphe orienté stocké dans le fichier 
-`data/graphM1.txt`, représentant un réseau social imaginaire vous impliquant, vous et vos camarades.
+`data/graphM2.txt`, représentant un réseau social imaginaire vous impliquant, vous et vos camarades.
 Que signifient les termes "degré" et "voisin" dans le cas d'un graphe orienté ? Comment obtenir les degrés entrant 
 et sortant d'un noeud ?
 
