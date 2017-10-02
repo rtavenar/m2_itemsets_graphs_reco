@@ -31,7 +31,9 @@ Affichez la liste de ses noeuds et la liste de ses liens.
 2. Affichez, pour chacun des noeuds de ce graphe, son degré et la liste de ses voisins dans le graphe.
 
 3. Affichez, pour chaque paire de noeuds du graphe, un chemin menant d'un noeud à l'autre dans le graphe, s'il en 
-existe.
+existe. Pour cela, vous pourrez jeter un oeil à la section 
+[_Shortest Path_](https://networkx.github.io/documentation/networkx-1.9.1/reference/algorithms.shortest_paths.html) de 
+la documentation de `NetworkX`.
 
 ## Graphes orientés
 
@@ -95,4 +97,18 @@ Dans le schéma précédent, si l'on souhaite représenter un graphe, on peut re
 Pour le graphe orienté vu dans la deuxième partie du TD, vous ferez en sorte que la taille des noeuds du graphe soit
 proportionnelle à leur importance dans le graphe telle qu'évaluée par la fonction `pagerank`.
 
+
+## Prédiction de liens
+
+La section [_Link Prediction_](http://networkx.readthedocs.io/en/latest/reference/algorithms/link_prediction.html) de
+la documentation de `NetworkX` pourrait vous être utile ici.
+
+8. Évaluez la similarité, au sens de l'indice Adamic/Adar, entre toutes les paires de noeuds du graphe non orienté
+vu au début de ce TD. Comme indiqué dans la documentation, la fonction que vous avez utilisée n'est disponible que 
+pour les graphes non orientés. Pour implémenter une version du calcul de cet indice qui soit généralisable aux graphes 
+orientés, un morceau de code vous a été inclus dans le squelette de ce TD ( voir la fonction `generic_adamic_adar`). 
+Remarquez que cette fonction fait appel à une autre fonction (nommée `generic_common_neighbors`) qui, elle, n'est pas 
+implémentée dans le squelette fourni et implémentez-la.
+
+9. Pour chacun des deux graphes utilisés dans ce TD, quels sont les trois liens manquants les plus "prévisibles" ?
 

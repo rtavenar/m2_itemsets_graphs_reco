@@ -6,7 +6,7 @@ import math
 __author__ = 'Romain Tavenard romain.tavenard[at]univ-rennes2.fr'
 
 
-def top_k_adamic_adar(triplets, k):
+def top_k_triplets(triplets, k):
     return sorted(triplets, key=lambda t: t[2], reverse=True)[:k]
 
 
@@ -18,7 +18,7 @@ def user_based_collaborative_filtering(g, scores, target, n_neighbors=5, similar
     triplets = similarity_fun(g, [(n, target_user) for n in list_neighbors])
     target_score = 0.
     sum_weights = 0.
-    for n, _, score in top_k_adamic_adar(triplets=triplets, k=n_neighbors):
+    for n, _, score in top_k_triplets(triplets=triplets, k=n_neighbors):
         user_grades = [v for k, v in scores.items() if k[0] == n]
         target_score += (scores[n, target_item] - sum(user_grades) / len(user_grades)) * score
         sum_weights += score
@@ -49,26 +49,6 @@ def generic_adamic_adar(g, ebunch=None):
         return sum([1. / math.log(g.degree(w)) for w in generic_common_neighbors(g, u, v)])
 
     return [(u, v, predict(u, v)) for u, v in ebunch]
-
-
-# Manipulations 1-2
-g = nx.read_edgelist("data/graph1.txt")
-g_directed = nx.read_edgelist("data/graphM2.txt", create_using=nx.DiGraph())
-
-print("graph1.txt")
-triplets = list(nx.adamic_adar_index(g))
-for source, dest, sim in top_k_adamic_adar(triplets=triplets, k=3):
-    print("(%r, %r) -> %.8f" % (source, dest, sim))
-
-print("graph1.txt avec la fonction générique")
-triplets = generic_adamic_adar(g)
-for source, dest, sim in top_k_adamic_adar(triplets=triplets, k=3):
-    print("(%r, %r) -> %.8f" % (source, dest, sim))
-
-print("graphM2.txt")
-triplets = generic_adamic_adar(g_directed)
-for source, dest, sim in top_k_adamic_adar(triplets=triplets, k=3):
-    print("(%r, %r) -> %.8f" % (source, dest, sim))
 
 # Manipulation 3
 grades = {("A", "iPad"): 10,

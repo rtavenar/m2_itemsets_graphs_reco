@@ -3,19 +3,6 @@
 Dans ce TD, nous allons travailler sur les mêmes graphes que lors du TD précedent. Commencez-donc par les re-charger en 
 mémoire.
 
-## Prédiction de liens
-
-La section [_Link Prediction_](http://networkx.readthedocs.io/en/latest/reference/algorithms/link_prediction.html) de
-la documentation de `NetworkX` pourrait vous être utile ici.
-
-1. Évaluez la similarité, au sens de l'indice Adamic/Adar, entre toutes les paires de noeuds du graphe non orienté
-manipulé au TD précédent. Comme indiqué dans la documentation, la fonction que vous avez utilisée n'est disponible que 
-pour les graphes non orientés. Proposez une implémentation du calcul de cet indice qui soit généralisable aux graphes 
-orientés et vérifiez qu'elle donne les mêmes résultats que la fonction fournie par `NetworkX` dans le cas des graphes 
-non orientés.
-
-2. Pour chacun des deux graphes, quels sont les trois liens manquants les plus "prévisibles" ?
-
 ## Recommandation
 
 3. Étant données les notes fournies dans le tableau suivant, inférez la note que pourrait souhaiter attribuer 
